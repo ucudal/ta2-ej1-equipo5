@@ -53,7 +53,13 @@ public class Almacen implements IAlmacen {
 
     @Override
     public long obtenerValorStock() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int total=0;
+        Nodo<Producto> aux = listaProducto.getPrimero();
+        while (aux!=null){
+            total += (aux.getDato().getStock())*(aux.getDato().getPrecio());
+            aux=aux.getSiguiente();
+        }
+        return total;
     }
 
     @Override
