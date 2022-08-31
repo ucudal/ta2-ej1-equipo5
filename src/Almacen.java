@@ -8,10 +8,22 @@
  * @author 59891
  */
 public class Almacen implements IAlmacen {
+    public String direccion;
+    public String telefono;
+    public String nombre;
+    public Lista<Producto> listaProducto;
+   
+    
+    public Almacen (String direccion,String telefono, String nombre){
+        this.direccion = direccion;
+        this.telefono=telefono;
+        this.nombre=nombre;
+        this.listaProducto = new Lista<>();
+    }
 
     @Override
     public String getDireccion() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return direccion;
     }
 
     @Override

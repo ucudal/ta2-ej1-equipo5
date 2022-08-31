@@ -8,11 +8,11 @@
  * @author 59891
  */
 public class Producto implements IProducto {
-    public String nombre;
     public int codigo;
-    public float precio;
+    public String nombre;
+    public int precio;
     public int stock;
-    public Producto(String nombre,int codigo,float precio, int stock){
+    public Producto(String nombre,int codigo,int precio, int stock){
         this.nombre=nombre;
         this.codigo=codigo;
         this.precio=precio;
@@ -21,12 +21,12 @@ public class Producto implements IProducto {
 
     @Override
     public Comparable getCodProducto() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return codigo;
     }
 
     @Override
     public Integer getPrecio() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return precio;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class Producto implements IProducto {
 
     @Override
     public String getNombre() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return nombre;
     }
 
     @Override
