@@ -12,13 +12,14 @@ public class Producto implements IProducto {
     public String nombre;
     public int precio;
     public int stock;
+    
     public Producto(String nombre,int codigo,int precio, int stock){
         this.nombre=nombre;
         this.codigo=codigo;
         this.precio=precio;
         this.stock=stock;
     }
-
+    
     @Override
     public Comparable getCodProducto() {
         return codigo;
@@ -31,12 +32,12 @@ public class Producto implements IProducto {
 
     @Override
     public void setPrecio(Integer precio) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.precio = precio;
     }
 
     @Override
     public Integer getStock() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return stock;
     }
 
     @Override
@@ -46,7 +47,12 @@ public class Producto implements IProducto {
 
     @Override
     public void restarCantidadStock(Integer stock) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (stock<this.stock){
+            this.stock -= stock;
+        }
+        else{
+            this.stock=0;
+        }
     }
 
     @Override
@@ -56,7 +62,7 @@ public class Producto implements IProducto {
 
     @Override
     public void setNombre(String nombre) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.nombre=nombre;
     }
     
 }
