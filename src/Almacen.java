@@ -8,16 +8,16 @@
  * @author 59891
  */
 public class Almacen implements IAlmacen {
+
     public String direccion;
     public String telefono;
     public String nombre;
     public Lista<Producto> listaProducto;
-   
-    
-    public Almacen (String direccion,String telefono, String nombre){
+
+    public Almacen(String direccion, String telefono, String nombre) {
         this.direccion = direccion;
-        this.telefono=telefono;
-        this.nombre=nombre;
+        this.telefono = telefono;
+        this.nombre = nombre;
         this.listaProducto = new Lista<>();
     }
 
@@ -64,7 +64,7 @@ public class Almacen implements IAlmacen {
 
     @Override
     public void insertarProducto(Producto unProducto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        listaProducto.insertar(new Nodo<>(unProducto.codigo, unProducto));
     }
 
     @Override
@@ -84,7 +84,13 @@ public class Almacen implements IAlmacen {
 
     @Override
     public Boolean agregarStock(Comparable codProducto, Integer cantidad) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Producto a = buscarPorCodigo(codProducto);
+        if (a != null) {
+            a.agregarCantidadStock(cantidad);
+            return true;
+        }
+        return false;
+
     }
 
     @Override
@@ -94,7 +100,9 @@ public class Almacen implements IAlmacen {
 
     @Override
     public Producto buscarPorCodigo(Comparable codProducto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Nodo<Producto> nodoProducto = listaProducto.buscar(codProducto);
+        if(nodoProducto == null) return null;
+        return nodoProducto.getDato();
     }
 
     @Override
@@ -111,5 +119,5 @@ public class Almacen implements IAlmacen {
     public int cantidadProductos() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }
