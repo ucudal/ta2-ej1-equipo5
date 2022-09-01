@@ -28,37 +28,43 @@ public class Almacen implements IAlmacen {
 
     @Override
     public void setDireccion(String direccion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.direccion = direccion;
     }
 
     @Override
     public String getTelefono() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return telefono;
     }
 
     @Override
     public void setTelefono(String telefono) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.telefono=telefono;
     }
 
     @Override
     public String getNombre() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return nombre;   
     }
 
     @Override
     public Lista<Producto> getListaProductos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return listaProducto;
     }
 
     @Override
     public long obtenerValorStock() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int total=0;
+        Nodo<Producto> aux = listaProducto.getPrimero();
+        while (aux!=null){
+            total += (aux.getDato().getStock())*(aux.getDato().getPrecio());
+            aux=aux.getSiguiente();
+        }
+        return total;
     }
 
     @Override
     public void insertarProducto(Producto unProducto) {
-        listaProducto.insertar(unProducto);
+        listaProducto.insertar(new Nodo<>(unProducto.codigo, unProducto));
     }
 
     @Override

@@ -68,4 +68,8 @@ public class Lista<T> implements ILista<T> {
     public void setPrimero(Nodo<T> unNodo) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+    public Nodo<T> getPrimero (){
+        return this.primero;
+    }
 }
