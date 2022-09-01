@@ -8,12 +8,12 @@
  * @author 59891
  */
 public class Producto implements IProducto {
-    public int codigo;
+    public String codigo;
     public String nombre;
     public int precio;
     public int stock;
 
-    public Producto(int codigo, String nombre,int precio, int stock){
+    public Producto(String codigo, String nombre,int precio, int stock){
         this.nombre=nombre;
         this.codigo=codigo;
         this.precio=precio;
@@ -47,7 +47,7 @@ public class Producto implements IProducto {
 
     @Override
     public void restarCantidadStock(Integer stock) {
-        if (stock<this.stock){
+        if (stock > this.stock){
             this.stock -= stock;
         }
         else{

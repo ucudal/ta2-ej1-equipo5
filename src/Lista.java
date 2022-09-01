@@ -21,14 +21,14 @@ public class Lista<T> implements ILista<T> {
         }
         aux.setSiguiente(nodo);
     }
-    @Override
+@Override
     public Nodo<T> buscar(Comparable clave) {
         if (esVacia()){
             return null;
         }
         Nodo<T> aux= primero;
         while (aux!=null){
-            if (aux.getEtiqueta().equals(clave)){
+            if (aux.getEtiqueta().compareTo(clave) == 0){
                 return aux;
             }
            aux=aux.getSiguiente();

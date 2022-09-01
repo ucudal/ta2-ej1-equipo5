@@ -26,7 +26,7 @@ public class Main {
             Producto prod = almacen.buscarPorCodigo(valores[0]);
             if(prod == null){
                 try {
-                    prod = new Producto(Integer.parseInt(valores[0]), valores[1], Integer.parseInt(valores[2]), Integer.parseInt(valores[3]));
+                    prod = new Producto(valores[0], valores[1], Integer.parseInt(valores[2]), Integer.parseInt(valores[3]));
                     almacen.insertarProducto(prod);
                 }catch (NumberFormatException ignored){
 
