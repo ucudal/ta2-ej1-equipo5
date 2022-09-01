@@ -58,7 +58,7 @@ public class Almacen implements IAlmacen {
 
     @Override
     public void insertarProducto(Producto unProducto) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        listaProducto.insertar(unProducto);
     }
 
     @Override
